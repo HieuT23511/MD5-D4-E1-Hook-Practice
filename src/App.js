@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import Counter from "./components/Counter";
+import Selector from "./components/Selector";
+import Clock from "./components/Clock";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [isShow1, setIsShow1] = useState(true);
+    let [isShow2, setIsShow2] = useState(true);
+    let [isShow3, setIsShow3] = useState(true);
+
+    return (
+        <>
+            {/*Practice1: */}
+            <button onClick={() => {
+                setIsShow1(!isShow1)
+            }
+            }>ShowP1
+            </button>
+            {isShow1 && <Counter props={"Practice 1: "}/>}
+
+            {/*Practice2: */}
+            <button onClick={() => {
+                setIsShow2(!isShow2)
+            }
+            }>ShowP2
+            </button>
+            {isShow2 && <Selector props={"Practice 2: "}/>}
+
+            {/*Practice3: */}
+            <button onClick={() => {
+                setIsShow3(!isShow3)
+            }
+            }>ShowP3
+            </button>
+            {isShow3 && <Clock props={"Practice 3: "}/>}
+        </>
+    );
 }
 
 export default App;
